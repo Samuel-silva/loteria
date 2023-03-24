@@ -34,7 +34,7 @@ function App() {
     return list;
   }
 
-  const  [amount] = useState(6)
+  const  [amount, setAmount] = useState(6)
   const  [numbersList, setNumbersList] = useState(generateList)
 
   return (
@@ -59,6 +59,7 @@ function App() {
               id="amount"
               className='amount__input'
               onChange={(e) => {
+                setAmount(+e.target.value)
                 setNumbersList(generateList(+e.target.value))
               }}
             >
