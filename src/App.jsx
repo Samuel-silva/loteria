@@ -2,39 +2,40 @@ import './App.css';
 import React, { useState } from "react";
 
 function App() {
-  function gerarNumerosUnicos(min, max, array) {
-    const aleatorio = parseInt(Math.random() * (max + 1 - min)) + min
 
-    return array.includes(aleatorio) ?
-      gerarNumerosUnicos(min, max, array) :
-      aleatorio
+  function generateUniqueNumbers(min, max, array) {
+    const random = parseInt(Math.random() * (max + 1 - min)) + min
+
+    return array.includes(random) ?
+      generateUniqueNumbers(min, max, array) :
+      random
   }
 
-  function gerarNumerosMega(qtd) {
-    const numeros = Array(qtd)
+  function generateNumbersMega(amount) {
+    const numbers = Array(amount)
       .fill(0)
       .reduce((nums) => {
-        const novoNumero = gerarNumerosUnicos(1, 60, nums)
-        return [...nums, novoNumero]
+        const newNumbers = generateUniqueNumbers(1, 60, nums)
+        return [...nums, newNumbers]
       }, [])
       .sort((a, b) => a - b)
 
-    return numeros
+    return numbers
   }
 
-  function gerarLista(qtd) {
-    const numeros = gerarNumerosMega(qtd || amount)
-    const lista = numeros.map(numero => {
+  function generateList(amountLocale) {
+    const numbers = generateNumbersMega(amountLocale || amount)
+    const list = numbers.map(number => {
       return (
-        <li key={numero} className="lista__item">{numero}</li>
+        <li key={number} className="numbers__item">{number}</li>
       )
     })
 
-    return lista;
+    return list;
   }
 
   const  [amount, setAmount] = useState(6)
-  const  [listaNumeros, setListaNumeros] = useState(gerarLista)
+  const  [numbersList, setNumbersList] = useState(generateList)
 
   return (
     <div className="App">
@@ -62,19 +63,20 @@ function App() {
               value={amount}
               onChange={(e) => {
                 setAmount(+e.target.value)
-                setListaNumeros(gerarLista(+e.target.value))
+                setNumbersList(generateList(+e.target.value))
               }}
             />
           </div>
-          <div>
-            <p>Seus números</p>
-            <ul className='lista'>
-              {listaNumeros}
+          <div className="numbers">
+            <h2 className="numbers__title">Seus números da sorte</h2>
+
+            <ul className='numbers__list'>
+              {numbersList}
             </ul>
           </div>
 
-          <div className="ta-c mt">
-            <button className="btn btn-success" onClick={_ => setListaNumeros(gerarLista(amount))}>Gerar novos números</button>
+          <div className="button">
+            <button className="btn btn-primary" onClick={_ => setNumbersList(generateList(amount))}>Gerar novos números</button>
           </div>
         </div>
       </main>

@@ -73,3 +73,27 @@ body {
   max-width: 1200px;
   padding: 0 15px;
 }
+
+.btn {
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+  padding: .75em 1.23em;
+}
+.btn-primary {
+  background: linear-gradient(to bottom,#fff 0%,#e9e9ec 100%);
+  border: 1px solid #a5aab5;
+  color: #006bae;
+  transition: all 0.3s linear;
+}
+.btn-primary:hover, .btn-primary:active {
+  border-color: #006bae;
+  background: linear-gradient(to bottom,#F9F9F9 0%,#e9e9ec 100%);
+}
+
+@media screen and (min-width: 380px) {
+  .btn { font-size: calc(20px + (25 - 20) * ((100vw - 380px) / (1000 - 380))); }
+}
+@media screen and (min-width: 1000px) {
+  .btn { font-size: 25px; }
+}
