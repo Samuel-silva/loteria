@@ -23,7 +23,7 @@ function App() {
   }
 
   function gerarLista(qtd) {
-    const numeros = gerarNumerosMega(qtd || qtdNumeros)
+    const numeros = gerarNumerosMega(qtd || amount)
     const lista = numeros.map(numero => {
       return (
         <li key={numero} className="lista__item">{numero}</li>
@@ -33,7 +33,7 @@ function App() {
     return lista;
   }
 
-  const  [qtdNumeros, setQtdNumeros] = useState(6)
+  const  [amount, setAmount] = useState(6)
   const  [listaNumeros, setListaNumeros] = useState(gerarLista)
 
   return (
@@ -46,29 +46,35 @@ function App() {
 
       <main className="main">
         <div className="wrapper">
-          <p className="ta-c">Quantidade de números:</p>
-          <div className="ta-c">
-            <label htmlFor="qtdNumeros">
-              <input
-                className='input mb'
-                id="qtdNumeros"
-                min="6"
-                max="15"
-                type="number"
-                value={qtdNumeros}
-                onChange={(e) => {
-                  setQtdNumeros(+e.target.value)
-                  setListaNumeros(gerarLista(+e.target.value))
-                }}
-              />
+          <div className="amount">
+            <label
+              className='amount__label'
+              htmlFor="amount"
+            >
+              Quantidade de números:
             </label>
+            <input
+              className='amount__input'
+              id="amount"
+              min="6"
+              max="20"
+              type="number"
+              value={amount}
+              onChange={(e) => {
+                setAmount(+e.target.value)
+                setListaNumeros(gerarLista(+e.target.value))
+              }}
+            />
           </div>
-          <ul className='lista'>
-            {listaNumeros}
-          </ul>
+          <div>
+            <p>Seus números</p>
+            <ul className='lista'>
+              {listaNumeros}
+            </ul>
+          </div>
 
           <div className="ta-c mt">
-            <button className="btn btn-success" onClick={_ => setListaNumeros(gerarLista(qtdNumeros))}>Gerar novos números</button>
+            <button className="btn btn-success" onClick={_ => setListaNumeros(gerarLista(amount))}>Gerar novos números</button>
           </div>
         </div>
       </main>

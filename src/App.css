@@ -10,6 +10,34 @@
   padding: 0.625em 0;
   text-align: center;
 }
+
+.main { padding: 15px 0; }
+
+.amount {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0 0;
+}
+.amount__label {
+  color: #4c546d;
+  font-size: 18px;
+  padding: 0 10px 0 0;
+}
+.amount__input {
+  color: #444;
+  border: 1px solid #ababab;
+  border-radius: 2px;
+  box-shadow: 5px 5px 8px rgba(165, 170, 181, 0.25) inset;
+  font-size: 18px;
+  height: 40px;
+  padding: 5px 10px;
+  width: 75px;
+}
+.amount__input:focus {
+  border-color: #2a8dd4;
+}
+
 @media screen and (min-width: 380px) {
   .header__title { font-size: calc(22px + (40 - 22) * ((100vw - 380px) / (1000 - 380))); }
 }
