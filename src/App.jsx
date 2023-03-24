@@ -39,33 +39,37 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1 className="header__title">Números Mega-sena</h1>
+        <div className="wrapper">
+          <h1 className="header__title">Números Mega-Sena</h1>
+        </div>
       </header>
 
-      <main>
-        <p className="ta-c">Quantidade de números:</p>
-        <div className="ta-c">
-          <label htmlFor="qtdNumeros">
-            <input
-              className='input mb'
-              id="qtdNumeros"
-              min="6"
-              max="15"
-              type="number"
-              value={qtdNumeros}
-              onChange={(e) => {
-                setQtdNumeros(+e.target.value)
-                setListaNumeros(gerarLista(+e.target.value))
-              }}
-            />
-          </label>
-        </div>
-        <ul className='lista'>
-          {listaNumeros}
-        </ul>
+      <main className="main">
+        <div className="wrapper">
+          <p className="ta-c">Quantidade de números:</p>
+          <div className="ta-c">
+            <label htmlFor="qtdNumeros">
+              <input
+                className='input mb'
+                id="qtdNumeros"
+                min="6"
+                max="15"
+                type="number"
+                value={qtdNumeros}
+                onChange={(e) => {
+                  setQtdNumeros(+e.target.value)
+                  setListaNumeros(gerarLista(+e.target.value))
+                }}
+              />
+            </label>
+          </div>
+          <ul className='lista'>
+            {listaNumeros}
+          </ul>
 
-        <div className="ta-c mt">
-          <button className="btn btn-success" onClick={_ => setListaNumeros(gerarLista(qtdNumeros))}>Gerar novos números</button>
+          <div className="ta-c mt">
+            <button className="btn btn-success" onClick={_ => setListaNumeros(gerarLista(qtdNumeros))}>Gerar novos números</button>
+          </div>
         </div>
       </main>
     </div>
