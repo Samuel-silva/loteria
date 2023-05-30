@@ -59,7 +59,6 @@ body {
   font-size: 100%;
   margin: 0;
   min-width: 320px;
-  width: 100vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

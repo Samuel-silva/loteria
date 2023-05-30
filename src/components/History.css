@@ -7,11 +7,19 @@
   padding: 0 0 20px 0;
   text-align: center;
 }
-.numbers__list--history {
+.numbers__list--history:not(:last-child) {
   border-bottom: 1px solid #DDD;
+}
+.numbers__list--history {
   padding: 5px 0;
 }
 .numbers__list--history .numbers__item {
   background: #536961;
   font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .numbers__list--history .numbers__item {
+    font-size: 15px;
+  }
 }
