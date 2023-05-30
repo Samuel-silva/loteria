@@ -1,0 +1,18 @@
+.header {
+    background: #0066b3;
+}
+.header__title {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0.625em 0;
+    text-align: center;
+}
+
+@media screen and (min-width: 380px) {
+    .header__title { font-size: calc(22px + (40 - 22) * ((100vw - 380px) / (1000 - 380))); }
+}
+@media screen and (min-width: 1000px) {
+    .header__title { font-size: 40px; }
+}
