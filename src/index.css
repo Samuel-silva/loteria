@@ -54,6 +54,10 @@ table {
     text-decoration: none;
 }
 
+strong {
+  font-weight: bold;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 100%;

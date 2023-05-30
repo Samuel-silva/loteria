@@ -1,4 +1,5 @@
 import History from './History';
+import Info from './Info';
 import './Main.css';
 import React, { useState } from "react";
 
@@ -97,6 +98,7 @@ function Main() {
             <button className="btn btn-primary" onClick={_ => regenerateNumbers()}>Gerar novos números</button>
           </div>
           <History numbers={history} />
+          <Info />
         </div>
       </main>
     </>
