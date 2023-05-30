@@ -35,7 +35,7 @@ function Info() {
         </p>
         <p className="info__next-date info__text">Data próximo sorteio: <strong>{ data.dataProximoConcurso }</strong></p>
         <div className="info__last-numbers">
-          <p className="info__last-numbers__title info__text">Números sorteados:</p>
+          <p className="info__last-numbers__title info__text">Números do último sorteio:</p>
           <ul className='numbers__list numbers__list--last'>
             {numbersList}
           </ul>
