@@ -77,7 +77,7 @@ body {
 
 .btn {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 19px;
   border: none;
   padding: .75em 1.23em;
 }
@@ -93,8 +93,8 @@ body {
 }
 
 @media screen and (min-width: 380px) {
-  .btn { font-size: calc(20px + (25 - 20) * ((100vw - 380px) / (1000 - 380))); }
+  .btn { font-size: calc(19px + (23 - 19) * ((100vw - 380px) / (1000 - 380))); }
 }
 @media screen and (min-width: 1000px) {
-  .btn { font-size: 25px; }
+  .btn { font-size: 23px; }
 }
