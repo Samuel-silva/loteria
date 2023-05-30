@@ -27,7 +27,7 @@ function Main() {
     const numbers = generateNumbersMega(amountLocale || amount)
     const list = numbers.map(number => {
       return (
-        <li key={number} className="numbers__item">{number}</li>
+        <li key={number} className="numbers__item">{String(number).padStart(2, "0")}</li>
       )
     })
 
