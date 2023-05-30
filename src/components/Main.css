@@ -44,8 +44,13 @@
 }
 .numbers__item {
   align-items: center;
-  background: #209869;
+  background-color: #18bd7e;
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.1) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.1) 0%, transparent 100%);
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.1) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.1) 0%, transparent 100%);
   border-radius: 100%;
+  box-shadow: inset -25px -25px 40px rgba(0,0,0,.3);
   color: white;
   display: flex;
   font-size: 18px;
