@@ -6,7 +6,7 @@ function History(params) {
 
   const [list, setList] = useState();
 
-  const title = <p className="history__title">Seus últimos 7 números:</p>;
+  const title = <p className="history__title">Seu histórico <small>(Máx 7)</small>:</p>;
 
   function generateList() {
     const listLocale = numbers.map((item, index) => {
