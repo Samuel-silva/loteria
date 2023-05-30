@@ -1,7 +1,12 @@
+import History from './History';
 import './Main.css';
 import React, { useState } from "react";
 
 function Main() {
+  const [amount, setAmount] = useState(6);
+  const [history, setHistory] = useState([]);
+  const [currentNumber, setCurrentNumber] = useState([]);
+  const [numbersList, setNumbersList] = useState(generateList);
 
   function generateUniqueNumbers(min, max, array) {
     const random = parseInt(Math.random() * (max + 1 - min)) + min
@@ -28,14 +33,23 @@ function Main() {
     const list = numbers.map(number => {
       return (
         <li key={number} className="numbers__item">{String(number).padStart(2, "0")}</li>
-      )
-    })
+        )
+      })
+    setCurrentNumber([list]);
 
     return list;
   }
 
-  const  [amount, setAmount] = useState(6)
-  const  [numbersList, setNumbersList] = useState(generateList)
+  function regenerateNumbers(newAmount = null) {
+    if (newAmount) {
+      setAmount(newAmount)
+    }
+    if (history.length > 6) {
+      history.shift();
+    }
+    setHistory([...history, currentNumber]);
+    setNumbersList(generateList(newAmount || amount));
+  }
 
   return (
     <>
@@ -52,10 +66,7 @@ function Main() {
               name="amount"
               id="amount"
               className='amount__input'
-              onChange={(e) => {
-                setAmount(+e.target.value)
-                setNumbersList(generateList(+e.target.value))
-              }}
+              onChange={(e) => regenerateNumbers(+e.target.value)}
             >
               <option value="6">6</option>
               <option value="7">7</option>
@@ -83,8 +94,9 @@ function Main() {
           </div>
 
           <div className="button">
-            <button className="btn btn-primary" onClick={_ => setNumbersList(generateList(amount))}>Gerar novos números</button>
+            <button className="btn btn-primary" onClick={_ => regenerateNumbers()}>Gerar novos números</button>
           </div>
+          <History numbers={history} />
         </div>
       </main>
     </>

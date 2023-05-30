@@ -1,0 +1,17 @@
+.history {
+  padding: 30px 0 0 0;
+}
+.history__title {
+  color: #333;
+  font-size: 18px;
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+.numbers__list--history {
+  border-bottom: 1px solid #DDD;
+  padding: 5px 0;
+}
+.numbers__list--history .numbers__item {
+  background: #536961;
+  font-size: 20px;
+}
