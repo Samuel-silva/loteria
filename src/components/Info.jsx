@@ -18,12 +18,12 @@ function Info() {
   }
 
   useEffect(function(){
-    if (data?.acumulado) {
+    if (data?.listaDezenas) {
       generateList(data.listaDezenas);
     }
   },[data]);
 
-  if (!erro && !loading && data?.acumulado) {
+  if (!erro && !loading && data?.listaDezenas) {
     const currencyFormat = data.valorEstimadoProximoConcurso.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
     return (
