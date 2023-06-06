@@ -29,7 +29,7 @@ function Info() {
     return (
       <section className="info">
         <p className="info__prize-value">
-          <span className="info__prize-value--txt1 info__text">Estimativa do prêmio:</span>
+          <span className="info__prize-value--txt1 info__text">Estimativa do próximo prêmio:</span>
           <span className="numbers__title info__prize-value--txt2">{ currencyFormat }</span>
           {data.acumulado ? txtAccumulated : null}
         </p>
