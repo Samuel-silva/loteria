@@ -34,8 +34,8 @@ function Main() {
     const list = numbers.map(number => {
       return (
         <li key={number} className="numbers__item">{String(number).padStart(2, "0")}</li>
-        )
-      })
+      )
+    })
     setCurrentNumber([list]);
 
     return list;
