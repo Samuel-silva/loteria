@@ -12,21 +12,35 @@ function Main() {
   function generateUniqueNumbers(min, max, array) {
     const random = parseInt(Math.random() * (max + 1 - min)) + min
 
-    return array.includes(random) ?
+    const exceededConsecutive = exceedsMaxConsecutive(array, random);
+
+    return array.includes(random) || exceededConsecutive ?
       generateUniqueNumbers(min, max, array) :
       random
+  }
+
+  function exceedsMaxConsecutive(arr, num, maxConsecutive = 2) {
+    const n = arr.length;
+    if (n <= maxConsecutive) return false;
+    let count = 0;
+
+    for (let i = 1; i <= maxConsecutive; i++) {
+      if (arr.includes(num - i)) count++;
+      if (arr.includes(num + i)) count++;
+    }
+    return count >= maxConsecutive;
   }
 
   function generateNumbersMega(amount) {
     const numbers = Array(amount)
       .fill(0)
       .reduce((nums) => {
-        const newNumbers = generateUniqueNumbers(1, 60, nums)
-        return [...nums, newNumbers]
+        const newNumbers = generateUniqueNumbers(1, 60, nums);
+        return [...nums, newNumbers];
       }, [])
-      .sort((a, b) => a - b)
+      .sort((a, b) => a - b);
 
-    return numbers
+    return numbers;
   }
 
   function generateList(amountLocale) {
