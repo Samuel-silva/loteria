@@ -6,17 +6,35 @@ import React, { useState } from "react";
 function Main() {
   const [amount, setAmount] = useState(6);
   const [history, setHistory] = useState([]);
+  const [tens, setTens] = useState([[], [], [], [], [], [], []])
   const [currentNumber, setCurrentNumber] = useState([]);
   const [numbersList, setNumbersList] = useState(generateList);
 
   function generateUniqueNumbers(min, max, array) {
     const random = parseInt(Math.random() * (max + 1 - min)) + min
 
-    const exceededConsecutive = exceedsMaxConsecutive(array, random);
+    const uniqueNumber = array.includes(random);
+    const exceededConsecutive = amount === 6 ? exceedsMaxConsecutive(array, random) : false;
+    const exceededTens = amount < 9 ? exceedsMaxTens(random) : false;
 
-    return array.includes(random) || exceededConsecutive ?
+    return uniqueNumber || exceededConsecutive || exceededTens ?
       generateUniqueNumbers(min, max, array) :
-      random
+      random;
+  }
+
+  function exceedsMaxTens(num, maxTens = 3) {
+    const ten = Math.floor(num / 10);
+    return tens[ten].length >= maxTens;
+  }
+
+  function pushTens(num, clear = false) {
+    const ten = Math.floor(num / 10);
+    const localtens = clear ? [[], [], [], [], [], [], []] : tens;
+
+    if (!clear) {
+      localtens[ten].push(num);
+    }
+    setTens(localtens);
   }
 
   function exceedsMaxConsecutive(arr, num, maxConsecutive = 2) {
@@ -36,10 +54,12 @@ function Main() {
       .fill(0)
       .reduce((nums) => {
         const newNumbers = generateUniqueNumbers(1, 60, nums);
+        pushTens(newNumbers);
         return [...nums, newNumbers];
       }, [])
       .sort((a, b) => a - b);
 
+    pushTens(0, true);
     return numbers;
   }
 
