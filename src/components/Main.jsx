@@ -60,7 +60,7 @@ function Main() {
       .sort((a, b) => a - b);
 
     pushTens(0, true);
-    console.log(numbers)
+    console.log(JSON.stringify(numbers.map(num => String(num).padStart(2, "0"))))
     return numbers;
   }
 
