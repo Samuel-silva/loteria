@@ -60,6 +60,7 @@ function Main() {
       .sort((a, b) => a - b);
 
     pushTens(0, true);
+    console.log(numbers)
     return numbers;
   }
 
